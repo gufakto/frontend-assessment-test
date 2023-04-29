@@ -4,6 +4,7 @@ import { ButtonOutline } from './template/button-outline';
 import { numberWithDot } from 'helpers/number-format';
 import { convertUrlToID } from 'helpers/convert-url-id';
 import IPlanet from 'dto/planet';
+import { setList } from 'helpers/wishlist';
 
 interface Props {
   planet: IPlanet;
@@ -28,6 +29,13 @@ export const ListPlanet = ({ planet }: Props) => {
           </p>
           <ButtonOutline href={`/detail-planet/${convertUrlToID(planet.url)}`}>
             Detail
+          </ButtonOutline>
+          <ButtonOutline
+            onClick={() => {
+              setList(planet);
+            }}
+          >
+            Add Item
           </ButtonOutline>
         </div>
       </ListContent>
